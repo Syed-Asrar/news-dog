@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 export default class Newscard extends Component {
   render() {
     return (
-        <div className="card" style={{width: '18rem'}}>
+        <div className="card">
         <img src={this.props.imgUrl} className="card-img-top" alt="..."/>
         <div className="card-body">
           <h5 className="card-title">{this.props.title}</h5>

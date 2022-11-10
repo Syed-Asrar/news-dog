@@ -5,7 +5,7 @@ export default class News extends Component {
     static defaultProps={
         country: "in",
         pageSize: 6,
-        category: "sports"
+        category: "general"
     }
     // static propTypes={  //still not working???
     //     country: PropTypes.string,
@@ -77,7 +77,7 @@ export default class News extends Component {
                       return  <div className='col-md-4' key={e.url}>
                         <Newscard title={e.title} imgUrl={(e.urlToImage)?e.urlToImage:'https://images.unsplash.com/photo-1566378246598-5b11a0d486cc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8bmV3c3BhcGVyJTIwYmFja2dyb3VuZHxlbnwwfHwwfHw%3D&w=1000&q=80'} description={e.description} newsUrl={e.url}/>
                     </div>})} 
-                    <div className="d-flex justify-content-between">
+                    <div className="d-flex justify-content-between my-3">
                         <button disabled={this.state.page<=1} type="button" className="btn btn-dark" onClick={this.previousClick}>&larr; Previous</button>
                         <button disabled={Math.ceil(this.state.totalResults/this.props.pageSize)<this.state.page+1} type="button" className="btn btn-dark" onClick={this.nextClick}>Next &rarr;</button>
                     </div> 
