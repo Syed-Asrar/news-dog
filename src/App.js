@@ -28,5 +28,3 @@ export default class App extends Component {
     )
   }
 }
-
-// business entertainment general health science sports technology
