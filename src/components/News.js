@@ -7,7 +7,7 @@ export default class News extends Component {
     static defaultProps={
         country: "in",
         pageSize: 6,
-        category: "general"
+        category: "general",
     }
     // static propTypes={  //still not working???
     //     country: PropTypes.string,
@@ -21,18 +21,24 @@ export default class News extends Component {
             totalResults: 0,
             loading: false 
         };
+        document.title= this.props.heading+ (this.props.heading===''?"NewsDog - Hompage":"- NewsDog")
         
     }
     updateNews = async (page)=>{
+        this.props.progress(0);
         this.setState({loading:true});
         let url = `https://newsapi.org/v2/top-headlines?apiKey=e03e9a9714a04551bcfd8c30d11db515&category=${this.props.category}&country=${this.props.country}&pageSize=${this.props.pageSize}&page=${page}`;
+        this.props.progress(20);
         let data = await fetch(url);
+        this.props.progress(50);
         let parsedData = await data.json();
+        this.props.progress(70);
         this.setState({
             articles: parsedData.articles,
             totalResults: parsedData.totalResults,
             loading: false
         })
+        this.props.progress(100);
     }
     componentDidMount(){
         this.updateNews(this.state.pageNumber);  // baad main check krna
@@ -54,7 +60,7 @@ export default class News extends Component {
         return (
            
             <>
-                <div class="d-flex justify-content-center"><h2>NewsDog - Top headlines</h2></div>
+                <div className="d-flex justify-content-center"><h2>NewsDog - Top{this.props.heading} headlines</h2></div>
                 <InfiniteScroll
                     dataLength={this.state.articles.length}
                     next={this.fetchMoreData}
@@ -66,7 +72,7 @@ export default class News extends Component {
 
                             {this.state.articles.map(e => {
                             return  <div className='col-md-4' key={e.url}>
-                                <Newscard title={e.title} imgUrl={(e.urlToImage)?e.urlToImage:'https://images.unsplash.com/photo-1566378246598-5b11a0d486cc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8bmV3c3BhcGVyJTIwYmFja2dyb3VuZHxlbnwwfHwwfHw%3D&w=1000&q=80'} description={e.description} newsUrl={e.url} author={e.author} source={e.source.name} date={e.publishedAt}/>
+                                <Newscard title={e.title} imgUrl={(e.urlToImage)?e.urlToImage:'https://thumbs.dreamstime.com/b/news-newspapers-folded-stacked-word-wooden-block-puzzle-dice-concept-newspaper-media-press-release-42301371.jpg'} description={e.description} newsUrl={e.url} author={e.author} source={e.source.name} date={e.publishedAt}/>
                             </div>})} 
                         </div> 
                         </div>
