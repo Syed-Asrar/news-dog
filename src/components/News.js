@@ -60,7 +60,7 @@ export default class News extends Component {
         return (
            
             <>
-                <div className="d-flex justify-content-center"><h2>NewsDog - Top{this.props.heading} headlines</h2></div>
+                <div className="d-flex justify-content-center" style={{marginTop: '70px'}}><h2>NewsDog - Top{this.props.heading} headlines</h2></div>
                 <InfiniteScroll
                     dataLength={this.state.articles.length}
                     next={this.fetchMoreData}
