@@ -34,11 +34,3 @@ https://github.com/syedasrar00/news-dog/assets/81914950/4d5f7ccc-dbc8-4d32-b26e-
 ## Contributions
 
 Contributions are welcomed! Follow the standard GitHub contribution workflow: Fork -> Branch -> Pull Request to contribute to this open-source project.
-
-## License
-
-This project is licensed under [License Name]. Refer to the LICENSE file for details.
-
-## Contact
-
-For inquiries, suggestions, or collaboration opportunities, feel free to contact [Your Name] via [Your Email Address].
